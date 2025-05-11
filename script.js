@@ -20,6 +20,13 @@ function toggleFeedbackForm() {
 }
 
 function submitFeedback() {
-  alert('¡Gracias por tu opinión! La revisaremos pronto.');
-  document.getElementById('feedbackForm').style.display = 'none';
+  const form = document.getElementById('feedbackFormSubmit');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    alert('¡Gracias por tu opinión! La revisaremos pronto.');
+    form.reset();
+    toggleFeedbackForm();
+  });
 }
+
+submitFeedback();
